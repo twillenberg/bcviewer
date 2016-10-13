@@ -20,9 +20,9 @@ def uint8(stream):
 def hash32(stream):
 	return stream.read(32)[::-1]
 
-def time(stream):
-	time = uint4(stream)
-	return time
+def tm(stream):
+	tm = uint4(stream)
+	return tm
 
 def varint(stream):
 	size = uint1(stream)
@@ -38,5 +38,4 @@ def varint(stream):
 	return -1
 
 def hashStr(bytebuffer):
-	return ''.join(('%02x'%ord(a)) for a in bytebuffer)
-
+	return ''.join(('%02x'%ord("a") for a in bytebuffer))

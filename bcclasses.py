@@ -10,17 +10,17 @@ class BlockHeader:
 		self.version = uint4(blockchain)
 		self.previousHash = hash32(blockchain)
 		self.merkleHash = hash32(blockchain)
-		self.time = uint4(blockchain)
+		self.tm = uint4(blockchain)
 		self.bits = uint4(blockchain)
 		self.nonce = uint4(blockchain)
 		
 	def toString(self):
-		print "Version:\t %d" % self.version
-		print "Previous Hash\t %s" % hashStr(self.previousHash)
-		print "Merkle Root\t %s" % hashStr(self.merkleHash)
-		print "Time\t\t %s" % str(self.time)
-		print "Difficulty\t %8x" % self.bits
-		print "Nonce\t\t %s" % self.nonce
+		print("Version:\t %d" % self.version)
+		print("Previous Hash\t %s" % hashStr(self.previousHash))
+		print("Merkle Root\t %s" % hashStr(self.merkleHash))
+		print("Time\t\t %s" % str(self.tm))
+		print("Difficulty\t %8x" % self.bits)
+		print("Nonce\t\t %s" % self.nonce)
 
 class Block:
 	def __init__(self, blockchain):
@@ -64,7 +64,7 @@ class Block:
 		blockchain.seek(curPos)
 
 		tempBlockSize = fileSize - curPos
-		print tempBlockSize
+		print(tempBlockSize)
 		if tempBlockSize < size:
 			return False
 		return True
@@ -74,14 +74,14 @@ class Block:
 		self.blockHeader = BlockHeader(blockchain)
 
 	def toString(self):
-		print ""
-		print "Magic No: \t%8x" % self.magicNum
-		print "Blocksize: \t", self.blocksize
-		print ""
-		print "#"*10 + " Block Header " + "#"*10
+		print("")
+		print("Magic No: \t%8x" % self.magicNum)
+		print("Blocksize: \t", self.blocksize)
+		print("")
+		print("#"*10 + " Block Header " + "#"*10)
 		self.blockHeader.toString()
-		print 
-		print "##### Tx Count: %d" % self.txCount
+		print()
+		print("##### Tx Count: %d" % self.txCount)
 		for t in self.Txs:
 			t.toString()
 
@@ -102,17 +102,17 @@ class Tx:
 		self.lockTime = uint4(blockchain)
 		
 	def toString(self):
-		print ""
-		print "="*10 + " New Transaction " + "="*10
-		print "Tx Version:\t %d" % self.version
-		print "Inputs:\t\t %d" % self.inCount
+		print("")
+		print("="*10 + " New Transaction " + "="*10)
+		print("Tx Version:\t %d" % self.version)
+		print("Inputs:\t\t %d" % self.inCount)
 		for i in self.inputs:
 			i.toString()
 
-		print "Outputs:\t %d" % self.outCount
+		print("Outputs:\t %d" % self.outCount)
 		for o in self.outputs:
 			o.toString()
-		print "Lock Time:\t %d" % self.lockTime
+		print("Lock Time:\t %d" % self.lockTime)
 				
 
 class txInput:
@@ -124,11 +124,11 @@ class txInput:
 		self.seqNo = uint4(blockchain)
 
 	def toString(self):
-		print "Previous Hash:\t %s" % hashStr(self.prevhash)
-		print "Tx Out Index:\t %8x" % self.txOutId
-		print "Script Length:\t %d" % self.scriptLen
-		print "Script Sig:\t %s" % hashStr(self.scriptSig)
-		print "Sequence:\t %8x" % self.seqNo
+		print("Previous Hash:\t %s" % hashStr(self.prevhash))
+		print("Tx Out Index:\t %8x" % self.txOutId)
+		print("Script Length:\t %d" % self.scriptLen)
+		print("Script Sig:\t %s" % hashStr(self.scriptSig))
+		print("Sequence:\t %8x" % self.seqNo)
 		
 class txOutput:
 	def __init__(self, blockchain):	
@@ -137,6 +137,6 @@ class txOutput:
 		self.pubkey = blockchain.read(self.scriptLen)
 
 	def toString(self):
-		print "Value:\t\t %d" % self.value
-		print "Script Len:\t %d" % self.scriptLen
-		print "Pubkey:\t\t %s" % hashStr(self.pubkey)
+		print("Value:\t\t %d" % self.value)
+		print("Script Len:\t %d" % self.scriptLen)
+		print("Pubkey:\t\t %s" % hashStr(self.pubkey))
