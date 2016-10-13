@@ -1,6 +1,7 @@
 from bcreader import *
 
 #
+# Copyright 2016 Neocapita. All rights reserved. The Neocapita and AidCoin logos are trademarks of Neocapita.
 # The support classes to encode low-level data into higher-level objects for use in 'bcviewer'
 #
 
@@ -12,6 +13,7 @@ class BlockHeader:
 		self.time = uint4(blockchain)
 		self.bits = uint4(blockchain)
 		self.nonce = uint4(blockchain)
+		
 	def toString(self):
 		print "Version:\t %d" % self.version
 		print "Previous Hash\t %s" % hashStr(self.previousHash)

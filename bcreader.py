@@ -1,6 +1,7 @@
 import struct
 
 #
+# Copyright 2016 Neocapita. All rights reserved. The Neocapita and AidCoin logos are trademarks of Neocapita.
 # Reads binary data from blockchain files and parses the low-level data structures out of the binary payload.
 #
 
