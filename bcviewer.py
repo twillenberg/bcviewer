@@ -6,7 +6,7 @@
 #
 
 import sys
-import time
+from time import time
 from bcreader import *
 from bcclasses import Block, BlockHeader
 
@@ -15,7 +15,7 @@ def parse(blockchain):
 	continueParsing = True
 	counter = 0
 	blockchain.seek(0, 2)
-	fSize = blockchain.tell() - 80 # Minus last Block header size for partial file
+	fSize = blockchain.tell() - 80 # Minus last block header size for partial file
 	blockchain.seek(0, 0)
 	while continueParsing:
 		block = Block(blockchain)
@@ -29,13 +29,13 @@ def parse(blockchain):
 	print "Parsed %d blocks" % counter
 
 def main():
-	start_time = time.time()
+	start_time = time()
 	if len(sys.argv) < 2:
             print 'Usage: bcviewer.py filename'
 	else:
 		with open(sys.argv[1], 'rb') as blockchain:
 			parse(blockchain)
-	print("--- %s second to execute ---" % (time.time() - start_time))
+	print("--- %s s to execute ---" % (time() - start_time))
 if __name__ == '__main__':
 	main()
 
