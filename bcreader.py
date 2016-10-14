@@ -38,4 +38,4 @@ def varint(stream):
 	return -1
 
 def hashStr(bytebuffer):
-	return ''.join(('%02x'%ord("a") for a in bytebuffer))
+	return ''.join(('%02x' % ord(a) for a in bytebuffer))
