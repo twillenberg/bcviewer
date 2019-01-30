@@ -15,4 +15,4 @@ b. block65x5.dat - the first 5 MB of data from data file: blk00065.dat
 > python bcviewer.py block1x5.dat
 
 ## Credits
-Copyright 2016 Neocapita. All rights reserved.
+Copyright 2016- Neocapita Security Consulting Pty. Ltd. All rights reserved.
