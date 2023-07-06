@@ -1,10 +1,5 @@
 from bcreader import *
 
-#
-# Copyright 2016 Neocapita. All rights reserved. The Neocapita and AidCoin logos are trademarks of Neocapita.
-# The support classes to encode low-level data into higher-level objects for use in 'bcviewer'
-#
-
 class BlockHeader:
 	def __init__(self, blockchain):
 		self.version = uint4(blockchain)
