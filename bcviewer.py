@@ -1,8 +1,4 @@
 #!/usr/local/bin/python3
-#
-# Copyright 2016 Neocapita. All rights reserved. The Neocapita and AidCoin logos are trademarks of Neocapita.
-# This is the application entry point to view high-level objects parsed out of the low-level blockchain data.
-#
 
 import sys
 import time
